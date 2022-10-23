@@ -24,7 +24,7 @@ def deploy_dev():
             accounts[2],
             accounts[3]
             ]
-    placeholder_uri = "QmcqTdMdNwQEjjwMdv4QLUcimXLjatomaoqXQKgRGLqcNW"
+    placeholder_uri = "QmYvKjQnK8XHt4kHx8ab6qQzy42QTajoU9H63fGgDmHNvT"
 
 
 
@@ -41,13 +41,13 @@ def deploy_dev():
 
 def deploy_test():
     """ Deploy on a test network """
-    owner = accounts.load("ctf")
-    other_admin = accounts.load("ctf1")
-    placeholder_uri = "QmUnXR1eDn7wKtuZDSivPkQmm18i5iskoQRS8m8kdPa91V"
+    owner = accounts.load("a1")
+    other_admin = accounts.load("a2")
+    placeholder_uri = "QmYvKjQnK8XHt4kHx8ab6qQzy42QTajoU9H63fGgDmHNvT"
 
     contract = BTD.deploy(
             placeholder_uri,
-            0x601712bfdd978644cd68a58882b050308671b98df39548ed215b5bbaea9ca872,
+            0x9b6d08829d46689f650ed98580e7b83a3fd01d9d7a6dc1930e97e07f73ae8957,
             [owner, other_admin],
             {"from": owner},
             publish_source=True
@@ -57,8 +57,8 @@ def deploy_test():
 
 
 def main():
-    # if network.show_active() == "mainnet":
-        # deploy_main()
+    if network.show_active() == "mainnet":
+        deploy_main()
     if network.show_active() == "development":
         deploy_dev()
     else:
